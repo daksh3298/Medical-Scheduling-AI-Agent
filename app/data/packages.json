@@ -1,0 +1,108 @@
+{
+  "packages": [
+    {
+      "id": 1,
+      "name": "Basic Health Checkup",
+      "price": "$99",
+      "duration": "30 mins",
+      "suitable_for": "Annual routine checkup for all ages",
+      "tests": [
+        "Blood Pressure",
+        "Weight & BMI",
+        "Blood Sugar (Fasting)",
+        "General Physical Exam",
+        "Vision Test"
+      ],
+      "includes": "Doctor consultation included"
+    },
+    {
+      "id": 2,
+      "name": "Standard Health Checkup",
+      "price": "$199",
+      "duration": "1 hour",
+      "suitable_for": "Ages 30-50, corporate wellness packages",
+      "tests": [
+        "All Basic tests",
+        "Complete Blood Count (CBC)",
+        "Lipid Profile (Cholesterol)",
+        "Liver Function Test",
+        "Kidney Function Test",
+        "ECG",
+        "Chest X-Ray",
+        "Urine Analysis"
+      ],
+      "includes": "Doctor consultation + dietitian advice included"
+    },
+    {
+      "id": 3,
+      "name": "Premium Health Checkup",
+      "price": "$399",
+      "duration": "2 hours",
+      "suitable_for": "Ages 50+, comprehensive full body screening",
+      "tests": [
+        "All Standard tests",
+        "CT Scan",
+        "Thyroid Function Test",
+        "Vitamin D & B12",
+        "Cancer Markers",
+        "Bone Density Scan",
+        "Stress Test (Treadmill)",
+        "Eye Exam",
+        "Dental Screening"
+      ],
+      "includes": "Doctor + specialist + dietitian + follow-up consultation included"
+    },
+    {
+      "id": 4,
+      "name": "Cardiac Care Package",
+      "price": "$299",
+      "duration": "1.5 hours",
+      "suitable_for": "Anyone with heart concerns or family history of heart disease",
+      "tests": [
+        "ECG (Resting)",
+        "Stress Test (Treadmill)",
+        "Echocardiogram",
+        "Lipid Profile",
+        "Blood Pressure Monitoring",
+        "Cardiac Enzymes",
+        "Chest X-Ray"
+      ],
+      "includes": "Cardiologist consultation included"
+    },
+    {
+      "id": 5,
+      "name": "Diabetes Care Package",
+      "price": "$149",
+      "duration": "45 mins",
+      "suitable_for": "Diabetics or those at risk of diabetes",
+      "tests": [
+        "HbA1c (3-month sugar average)",
+        "Fasting Blood Sugar",
+        "Post-meal Blood Sugar",
+        "Kidney Function Test",
+        "Eye Exam (Diabetic Retinopathy)",
+        "Foot Exam",
+        "Blood Pressure"
+      ],
+      "includes": "Diabetologist consultation + dietitian advice included"
+    },
+    {
+      "id": 6,
+      "name": "Women's Health Package",
+      "price": "$249",
+      "duration": "1.5 hours",
+      "suitable_for": "Women aged 25 and above",
+      "tests": [
+        "Complete Blood Count",
+        "Thyroid Function Test",
+        "Pap Smear",
+        "Mammography",
+        "Bone Density Scan",
+        "Vitamin D & Iron",
+        "Blood Pressure",
+        "Blood Sugar"
+      ],
+      "includes": "Gynecologist + general physician consultation included"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr Jay",
+      "specialty": "General Physician",
+      "email": "daksh.bi32@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Dr Max",
+      "specialty": "Cardiologist",
+      "email": "daksh.bi32@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Dr Kim",
+      "specialty": "Neurologist",
+      "email": "daksh.bi32@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Dr Lee",
+      "specialty": "Orthopedic",
+      "email": "daksh.bi32@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "Dr Mia",
+      "specialty": "Gynecologist",
+      "email": "daksh.bi32@gmail.com"
+    },
+    {
+      "id": 6,
+      "name": "Dr Sam",
+      "specialty": "Dermatologist",
+      "email": "daksh.bi32@gmail.com"
+    },
+    {
+      "id": 7,
+      "name": "Dr Rio",
+      "specialty": "Diabetologist",
+      "email": "daksh.bi32@gmail.com"
+    },
+    {
+      "id": 8,
+      "name": "Dr Ace",
+      "specialty": "ENT Specialist",
+      "email": "daksh.bi32@gmail.com"
+    }
+  ]
+}
