@@ -634,15 +634,17 @@ def get_html():
             }).catch(()=>{});
         }
 
-        // Resume speaking last response without barge-in (used after noise interruption)
+        // Resume speaking last response without barge-in (used after barge-in interruption only)
         async function resumeLastResponse() {
             if (!lastAIResponse || !callActive) { if (callActive) startListening(); return; }
+            const textToSpeak = lastAIResponse;
+            lastAIResponse = ''; // clear so it can only replay once — prevents infinite loop
             setCallState('speaking');
             try {
                 const ttsRes = await fetch('/api/tts', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ text: lastAIResponse, voice: 'aura-asteria-en' })
+                    body: JSON.stringify({ text: textToSpeak, voice: 'aura-asteria-en' })
                 });
                 if (ttsRes.ok) {
                     const blob = await ttsRes.blob();
@@ -744,20 +746,12 @@ def get_html():
                 interim_results: 'true',
                 filler_words: 'false'
             });
+            // Keyword boosting for commonly misheard words
+            ['dgupta0444', 'sdsu', 'edu', 'gmail', 'outlook', 'yahoo'].forEach(kw => {
+                params.append('keywords', kw + ':2');
+            });
             dgSocket = new WebSocket('wss://api.deepgram.com/v1/listen?' + params, ['token', dgKey]);
             dgSocket.binaryType = 'arraybuffer';
-
-            // No-speech timeout: after 5s of silence
-            noSpeechTimer = setTimeout(() => {
-                if (!isListening) return;
-                stopListening();
-                if (lastAIResponse && callActive) {
-                    resumeLastResponse();
-                } else if (callActive) {
-                    // Genuine silence — prompt user
-                    processTranscript('hello are you there');
-                }
-            }, 5000);
 
             dgSocket.onopen = () => {
                 dgRecorder = new MediaRecorder(dgStream);
@@ -767,6 +761,16 @@ def get_html():
                     }
                 };
                 dgRecorder.start(100);
+
+                // No-speech timeout: start AFTER Deepgram is connected so the user's
+                // first words aren't missed during WebSocket setup (which can take 1-2s)
+                noSpeechTimer = setTimeout(() => {
+                    if (!isListening) return;
+                    stopListening();
+                    if (callActive) {
+                        processTranscript('I did not catch that, are you still there');
+                    }
+                }, 8000);
             };
 
             dgSocket.onmessage = e => {
